@@ -17,10 +17,12 @@
         "declarationDir": "dist",
         "declarationMap": true,
         "types": ["react"],
-        "lib": ["dom", "es2017"]
+        "lib": ["dom", "es2017"], 
+
     },
     "exclude": [
       "node_modules",
       "dist"
-    ]
+    ],
+	  "include": ["config-import.d.ts", "**/*.ts", "**/*.tsx"]
   }

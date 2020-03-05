@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render} from 'react-dom';
-import MyComponent from '../../src';
+import FooterVenueE from '../../src';
 
 const App = () => (
-    <MyComponent />
+    <FooterVenueE />
 );
 render(<App />, document.getElementById("root"));
