@@ -5,24 +5,24 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
     filename: "./index.html"
 });
 module.exports = {
-    entry: path.join(__dirname, "examples/src/index.js"),
+    entry: path.join(__dirname, "examples/src/index.tsx"),
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                use: "babel-loader",
-                exclude: /node_modules/
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/
             },
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            }
-        ]
+          ]
     },
     plugins: [htmlWebpackPlugin],
     resolve: {
-        extensions: [".js", ".jsx"]
+        extensions: [".js", ".jsx", ".tsx", ".ts"]
     },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js',
+      },
     devServer: {
         port: 3001
     }

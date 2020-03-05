@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "es5",
+        "jsx": "react",
+        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "strict": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "declarationDir": "dist",
+        "declarationMap": true,
+        "types": ["react"],
+        "lib": ["dom", "es2017"]
+    },
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }

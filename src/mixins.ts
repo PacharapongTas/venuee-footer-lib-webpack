@@ -1,26 +1,22 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
 import { css } from 'styled-components'
 
-export const screen = {
+export const screen: any = {
 	xs: 767,
 	sm: 991,
 	md: 1199,
 }
 
-export const media = Object.keys(screen).reduce((media, size) => {
-	media[size] = (...args) => css`
+export const media = Object.keys(screen).reduce((m: any, size) => {
+	m[size] = (...args: any) => css`
 		@media (max-width: ${screen[size]}px) {
-			${css(...args)};
+			${(css as any)(...args)};
 		}
 	`
 
-	return media
+	return m
 }, {})
-
-export const ratioImage = (ratio, url = null) => css`
-	width: 100%;
-	padding-bottom: ${100 / ratio}%;
-	${url && `background-image: url(${url})`};
-`
 
 export const grid = {
 	gutterWidth: 16,
@@ -32,10 +28,9 @@ export const colors = {
 	blueVenuee: '#1b75bb',
 	blueVenuee2: '#7daed4',
 	blueVenuee3: '#508CF0',
-	blueVenuee4: '#EBF3FF',
+	blueVenuee4: '#EFF8FE',
 	blue3: '#77A6CD',
 	blueCTA: '#508CF0',
-	blueBorder: '#92B5EF',
 	greenVenuee: '#38b449',
 	greenVenuee2: '#41D75A',
 	greenVenuee3: '#3CBE4B',
@@ -44,7 +39,6 @@ export const colors = {
 	grayBlue1: '#5a6971',
 	grayBlue2: '#8FA3AD',
 	grayBlue3: '#b5c0c6',
-	gray12: '#B0B0B0',
 	gray11: '#757575',
 	gray10: '#ededed',
 	gray9: '#FAFAFA',
@@ -64,10 +58,11 @@ export const colors = {
 	primary: '#505050',
 	secondary: '#A0A0A0',
 	border: '#e5e5e5',
-	border2: '#B3B3B3',
 	discount: '#EC5D57',
-	greenLine: '#00B901',
-	darkBlue: '#0A2463',
+	blueFacebook: '#3B5998',
+	greenLine: '#00b901',
+	insufficientCredit: '#F2994A',
+	venueePrime: '#1B75BB',
 }
 
 export const fontWeight = {
@@ -179,83 +174,11 @@ export const ellipsisText = css`
 	text-overflow: ellipsis;
 `
 
-const errorBorder = ({ validationMessage }) =>
-	validationMessage ? `solid 1px ${colors.error}` : 'none'
-
-const getTextboxFontSize = ({ heading }) => (heading ? fontSizes.large2 : fontSizes.normal)
-
-const getTextboxFontWeight = ({ heading }) => (heading ? 'bold' : 'normal')
-
-const getButtonWidth = props => props => (props.responsive ? '100%' : 'auto')
-
-const getButtonPadding = props => (props.slim ? '4px 15px' : '9px 15px')
-
-const getDisabledButtonColor = props => colors[props.disabledColor] || colors.gray3
-
-const getButtonTextColor = props => {
-	if (props.disabled) return getDisabledButtonColor(props)
-
-	return colors[props.color] || colors.gray6
-}
-
-const getButtonBorderColor = props => {
-	if (props.disabled) return getDisabledButtonColor(props)
-
-	return colors[props.color] || colors.gray4
-}
-
-export const input = css`
-	background-color: ${colors.gray1};
-	border: ${errorBorder} !important;
-	outline: none;
-	color: ${colors.black};
-`
-
-export const textbox = css`
-	${input} ${fontStyle} font-family: ${fontFamilies.default};
-	font-size: ${getTextboxFontSize} !important;
-	font-weight: ${getTextboxFontWeight} !important;
-	width: 100%;
-	padding: 6px 9px;
-
-	&::placeholder {
-		color: ${colors.gray4};
-	}
-`
-
-export const button = css`
-	${fontStyle} width: ${getButtonWidth};
-	padding: ${getButtonPadding};
-	border-radius: 4px;
-	font-family: ${fontFamilies.default};
-	font-size: ${fontSizes.normal};
-	line-height: 20px !important;
-	text-align: center;
-	outline: none;
-	cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-	background-color: ${colors.white};
-	border: solid 1px ${getButtonBorderColor};
-	color: ${getButtonTextColor};
-`
-
 export const counter = css`
 	${fontStyle} font-family: ${fontFamilies.default};
 	font-size: ${fontSizes.small2};
 	text-align: right;
 	color: ${colors.gray4};
-`
-
-export const expandOnMobile = css`
-	${media.sm`
-		${props =>
-			props.expandOnMobile
-				? `
-			margin-left: -${spaces.normal};
-			margin-right: -${spaces.normal};
-			width: calc(100% + ${spaces.large1});
-		`
-				: null}
-	`};
 `
 
 export const clearFix = css`
@@ -267,7 +190,8 @@ export const clearFix = css`
 `
 
 export const zIndex = {
-	overLayMessageChatNow: 16000161,
+	alert: 1052,
+	overlayLoader: 1051,
 	overlay: 5,
 	transparentOverlay: 4,
 	headerFooter: 3,
@@ -283,7 +207,6 @@ export const overflowScroll = css`
 export default {
 	colors,
 	fontSizes,
-	fontWeight,
 	lineHeight,
 	textLarge5,
 	textLarge4,
