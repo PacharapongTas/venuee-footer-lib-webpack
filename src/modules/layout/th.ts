@@ -1,113 +1,114 @@
-export const OCCASIONS_OPTIONS = (): Array<any> => [
+export const OCCASIONS_OPTIONS_TH = (): Array<any> => [
 	{
-		label: 'occasions.meeting',
+		label: 'ประชุม',
 		value: 'https://www.venuee.co/meeting',
 	},
 	{
-		label: 'occasions.seminar',
+		label: 'สัมมนา / ประชุมกลุ่มใหญ่',
 		value: 'https://www.venuee.co/seminar',
 	},
 	{
-		label: 'occasions.workshop',
+		label: 'เวิร์คช็อป',
 		value: 'https://www.venuee.co/workshop',
 	},
 	{
-		label: 'occasions.corporate-entertainment',
+		label: 'จัดเลี้ยงบริษัท',
 		value: 'https://www.venuee.co/corporate-entertainment',
 	},
 	{
-		label: 'occasions.product-launch',
+		label: 'งานเปิดตัวสินค้า',
 		value: 'https://www.venuee.co/product-launch',
 	},
 	{
-		label: 'occasions.parties',
+		label: 'ปาร์ตี้',
 		value: 'https://www.venuee.co/party',
 	},
 	{
-		label: 'occasions.wedding',
+		label: 'แต่งงาน',
 		value: 'https://www.venuee.co/wedding',
 	},
 	{
-		label: 'occasions.photo-filming',
+		label: 'ถ่ายภาพ / บันทึกภาพ',
 		value: 'https://www.venuee.co/photo-shoot',
 	},
 	{
-		label: 'occasions.concert',
+		label: 'คอนเสิร์ต',
 		value: 'https://www.venuee.co/concert',
 	},
 	{
-		label: 'occasions.workspaces',
+		label: 'พื้นที่ทำงาน',
 		value: 'https://www.venuee.co/workspaces',
 	},
 ]
 
-export const LOCATIONS_OPTIONS = () => [
+export const LOCATIONS_OPTIONS_TH = () => [
 	{
-		label: 'locations.bts',
+		label: 'BTS',
 		value: 'https://www.venuee.co/search?regionTypes%5B0%5D=71',
 	},
 	{
-		label: 'locations.mrt',
+		label: 'MRT',
 		value: 'https://www.venuee.co/search?regionTypes%5B0%5D=72',
 	},
 	{
-		label: 'locations.siam',
+		label: 'สยาม',
 		value:
 			'https://www.venuee.co/search?googlePlaceName=สยามพารากอน%2C%20เขต%20ปทุมวัน%20กรุงเทพมหานคร%20ประเทศไทย',
 	},
 	{
-		label: 'locations.silom',
+		label: 'สีลม',
 		value:
 			'https://www.venuee.co/search?googlePlaceName=ศาลาแดง%2C%20Silom%20Road%20เขต%20บางรัก%20กรุงเทพมหานคร%20ประเทศไทย',
 	},
 	{
-		label: 'locations.ekamai-thonglo',
+		label: 'เอกมัย-ทองหล่อ',
 		value: 'https://www.venuee.co/search?googlePlaceName=เอกมัย',
 	},
 	{
-		label: 'locations.see-all-locations',
+		label: 'ตำแหน่งที่ตั้งทั้งหมด',
 		value: 'https://www.venuee.co/locations',
 	},
 ]
 
-export const COMPANYS_OPTIONS = () => [
+
+export const COMPANYS_OPTIONS_TH = () => [
 	{
-		label: 'companies.about',
+		label: 'เกี่ยวกับเรา',
 		value: 'https://www.venuee.co/about-us',
 	},
 	{
-		label: 'companies.blog',
+		label: 'บล็อก',
 		value: 'https://www.venuee.co/blog',
 	},
 	{
-		label: 'companies.terms',
+		label: 'ข้อตกลงและเงื่อนไข',
 		value: 'https://www.venuee.co/terms',
 	},
 	{
-		label: 'companies.privacy',
+		label: 'นโยบายความเป็นส่วนตัว',
 		value: 'https://www.venuee.co/privacy-policy',
 	},
 	{
-		label: 'companies.cancellation',
+		label: 'นโยบายการยกเลิกและการคืนเงิน',
 		value: 'https://www.venuee.co/cancellation-policy',
 	},
 	{
-		label: 'companies.contact-us',
+		label: 'ติดต่อเรา',
 		value: 'https://www.venuee.co/contact-us',
 	},
 ]
 
-export const LEARNS_OPTIONS = () => [
+export const LEARNS_OPTIONS_TH = () => [
 	{
-		label: 'learns.faqs',
+		label: 'คำถามที่พบบ่อย',
 		value: 'https://www.venuee.co/faq',
 	},
 	{
-		label: 'learns.list-your-venue',
+		label: 'ลงพื้นที่กับเรา',
 		value: 'https://www.venuee.co/list-your-venues',
 	},
 	{
-		label: 'learns.how-it-works',
+		label: 'การใช้งาน',
 		value: 'https://www.venuee.co/how-it-works',
 	},
 ]

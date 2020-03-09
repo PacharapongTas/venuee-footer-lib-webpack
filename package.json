@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
     "prepublishOnly": "npm run build",
-    "build": "rimraf dist && tsc && npm run copy-assets",
-    "copy-assets": "cp -rv src/assets/ dist/src/assets/"
+    "build": "rimraf dist && tsc"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,9 @@
     "styled-components": "4.2.1",
     "reactstrap": "8.0.1"
   },
+  "files": [
+    "dist/*.css"
+    ],
   "bugs": {
     "url": "https://github.com/PacharapongTas/venuee-footer-lib-webpack/issues"
   },
