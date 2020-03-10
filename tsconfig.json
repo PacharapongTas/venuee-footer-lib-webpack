@@ -18,6 +18,20 @@
         "declarationMap": true,
         "types": ["react", "node"],
         "lib": ["dom", "es2017"], 
+
+
+        "baseUrl": ".",
+        "strictNullChecks": false,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "isolatedModules": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+
     },
     "exclude": [
       "node_modules",

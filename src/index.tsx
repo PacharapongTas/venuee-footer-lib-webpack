@@ -41,11 +41,12 @@ import {
 import { SERVICE_OPTIONS_TH } from "./modules/vendor/th";
 import { SERVICE_OPTIONS_EN } from "./modules/vendor/en";
 import { COMMON_TH, COMMON_EN } from "./modules/common";
+import UrlUtils from "./lib/UrlUtils";
 
 const Container = styled.div`
   border-top: 1px solid ${colors.border};
   color: ${colors.secondary};
-  padding: ${spaces.large4} 0;
+  padding: ${spaces.large4} ${spaces.large1};
   ${media.md`
 		padding: ${spaces.large2} 0;
 	`}
@@ -81,6 +82,20 @@ const Row = styled.div`
 	`}
 `;
 
+const Col = styled.div`
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  ${media.sm`
+    flex: 0 0 50%;
+    max-width: 50%;
+  `}
+`;
+
 const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -92,7 +107,7 @@ const VenueELogoContainer = styled.div`
   color: ${colors.secondary};
   font-weight: ${fontWeight.bold1};
   margin-top: -${grid.gutterWidth / 4 + 2}px;
-  padding: 0 ${spaces.large1};
+  padding: 0;
   width: 100%;
   > * {
     ${textNormal};
@@ -142,11 +157,21 @@ const NeedHelpListContainer = styled.ul`
 `;
 
 const SpacePerItem = styled.li`
-  margin-bottom: ${spaces.small1};
   line-height: ${lineHeight.normal};
 `;
 
 const TextListItem = styled.a`
+  ${textNormal};
+  font-weight: ${fontWeight.bold1};
+  color: ${colors.secondary};
+  text-decoration: none !important;
+
+  :hover {
+    color: ${colors.secondary};
+  }
+`;
+
+const CopyRightTextItem = styled.a`
   ${textNormal};
   font-weight: ${fontWeight.bold1};
   color: ${colors.secondary};
@@ -167,6 +192,7 @@ const VenueETextLink = styled.span`
 `;
 
 const IconContent = styled.span`
+  margin-top: ${spaces.small1};
   margin-right: ${spaces.normal};
 `;
 
@@ -176,7 +202,6 @@ const TextPhoneNumber = styled.span`
 
 const SocialLinkContainer = styled.div`
   display: flex;
-  padding: 0 ${spaces.large1};
   width: 100%;
   > :not(:last-child) {
     margin-right: ${spaces.small1};
@@ -184,12 +209,14 @@ const SocialLinkContainer = styled.div`
   ${media.sm`
 		display:flex;
 		justify-content: center;
+    padding-left: ${spaces.large1};;
+    padding-right: ${spaces.large1};;
 		margin-bottom: ${spaces.large5};
 	`}
 `;
 
 interface IProps {
-  lng?: string;
+  lng: string;
 }
 
 interface IState {
@@ -198,10 +225,14 @@ interface IState {
 
 class FooterVenueE extends React.PureComponent<IProps, IState> {
   state = {
-    lng: "th"
+    lng: this.props.lng ? this.props.lng : "th"
   };
 
-  public onLocaleClick = (locale: any) => {
+  public onLocaleClick = async (locale: any) => {
+    window.location.href = await UrlUtils.getChangeLangUrlByLocation(
+      window.location.href,
+      locale
+    );
     this.setState({ lng: locale });
   };
 
@@ -233,9 +264,9 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                 </VenueEAddress>
                 <TextCopyright>
                   <span>Copyright &copy; {currentYear} &nbsp;</span>
-                  <TextListItem href="https://www.venuee.co">
+                  <CopyRightTextItem href="https://www.venuee.co">
                     <VenueETextLink>venuee.co</VenueETextLink>
-                  </TextListItem>
+                  </CopyRightTextItem>
                   <div>All right reserved.</div>
                 </TextCopyright>
               </VenueELogoContainer>
@@ -248,7 +279,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
           </Content>
 
           <Content>
-            <div className="col-6 col-md">
+            <Col className="col-6 col-md">
               <H5>Occasions</H5>
               <ListContainer>
                 {lng === "th"
@@ -267,8 +298,8 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                       </SpacePerItem>
                     ))}
               </ListContainer>
-            </div>
-            <div className="col-6 col-md">
+            </Col>
+            <Col className="col-6 col-md">
               <H5>{"Suppliers"}</H5>
               <ListContainer>
                 {lng === "th"
@@ -291,8 +322,8 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                       </SpacePerItem>
                     ))}
               </ListContainer>
-            </div>
-            <div className="col-6 col-md">
+            </Col>
+            <Col className="col-6 col-md">
               <H5>Locations</H5>
               <ListContainer>
                 {lng === "th"
@@ -311,8 +342,8 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                       </SpacePerItem>
                     ))}
               </ListContainer>
-            </div>
-            <div className="col-6 col-md">
+            </Col>
+            <Col className="col-6 col-md">
               <H5>Company</H5>
               <ListContainer>
                 {COMPANYS_OPTIONS_EN().map((company, index) => (
@@ -323,8 +354,8 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                   </SpacePerItem>
                 ))}
               </ListContainer>
-            </div>
-            <div className="col-6 col-md">
+            </Col>
+            <Col className="col-6 col-md">
               <H5>Learn</H5>
               <ListContainer>
                 {lng === "th"
@@ -343,8 +374,8 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                       </SpacePerItem>
                     ))}
               </ListContainer>
-            </div>
-            <div className="col-6 col-md">
+            </Col>
+            <Col className="col-6 col-md">
               <H5>Need help?</H5>
               <NeedHelpListContainer>
                 <SpacePerItem>
@@ -384,7 +415,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                     </TextListItem>
                   </SpacePerItem>
                   <SpacePerItem>
-                    <LineButton />
+                    <LineButton lng={lng} />
                   </SpacePerItem>
                 </ContactContainer>
               </NeedHelpListContainer>
@@ -393,10 +424,13 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                   {lng === "th" ? COMMON_TH.language : COMMON_EN.language}
                 </H5>
                 <SpacePerItem>
-                  <LanguageSelect onLocaleClick={this.onLocaleClick} />
+                  <LanguageSelect
+                    lng={this.props.lng}
+                    onLocaleClick={this.onLocaleClick}
+                  />
                 </SpacePerItem>
               </ListContainer>
-            </div>
+            </Col>
           </Content>
         </Row>
       </Container>

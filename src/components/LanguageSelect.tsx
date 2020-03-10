@@ -10,6 +10,7 @@ const SelectedStyle = styled.select`
 `;
 
 interface IProps {
+  lng?: string;
   onLocaleClick: (locale: any) => void;
 }
 
@@ -19,7 +20,7 @@ interface IState {
 
 class LanguageSelect extends React.Component<IProps, IState> {
   state = {
-    language: "th"
+    language: this.props.lng ? this.props.lng : "th"
   };
 
   render() {
@@ -27,16 +28,16 @@ class LanguageSelect extends React.Component<IProps, IState> {
     const { language } = this.state;
 
     return (
-          <SelectedStyle
-            onChange={e => {
-              onLocaleClick(e.target.value);
-              this.setState({ language: e.target.value });
-            }}
-            value={language}
-          >
-            <option value="th">ภาษาไทย</option>
-            <option value="en">English</option>
-          </SelectedStyle>
+      <SelectedStyle
+        onChange={e => {
+          onLocaleClick(e.target.value);
+          this.setState({ language: e.target.value });
+        }}
+        value={language}
+      >
+        <option value="th">ภาษาไทย</option>
+        <option value="en">English</option>
+      </SelectedStyle>
     );
   }
 }

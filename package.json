@@ -1,6 +1,6 @@
 {
   "name": "venuee-footer-lib-webpack",
-  "version": "1.0.40",
+  "version": "1.0.53",
   "description": "this's for test lib with webpack",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -22,9 +22,6 @@
     "styled-components": "4.2.1",
     "reactstrap": "8.0.1"
   },
-  "files": [
-    "dist/*.css"
-    ],
   "bugs": {
     "url": "https://github.com/PacharapongTas/venuee-footer-lib-webpack/issues"
   },
@@ -61,7 +58,10 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.149",
     "@types/node": "^13.7.7",
+    "@types/qs": "^6.9.1",
+    "@types/url-parse": "^1.4.3",
     "bootstrap": "^4.4.1",
     "react-device-detect": "^1.11.14",
     "react-icons": "^3.9.0",
