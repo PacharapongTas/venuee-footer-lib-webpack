@@ -10,7 +10,8 @@ import {
   media,
   lineHeight,
   textLarge1,
-  grid
+  grid,
+  fontSizes
 } from "./styles/mixins";
 
 import { LineButton } from "./components/LineButton";
@@ -55,10 +56,12 @@ const Container = styled.div`
 `;
 
 const H5 = styled.h5`
-  ${textLarge1};
-  font-weight: ${fontWeight.bold3};
-  color: ${colors.primary};
-  margin-bottom: ${spaces.large1};
+  font-size: ${fontSizes.large1} !important;
+  line-height: ${lineHeight.large1} !important;
+  font-weight: ${fontWeight.bold3} !important;
+  color: ${colors.primary} !important;
+  margin-bottom: ${spaces.large1} !important;
+  margin-top: 0px !important;
 `;
 
 const Row = styled.div`
@@ -80,6 +83,19 @@ const Row = styled.div`
 			width: auto;
 		}
 	`}
+`;
+
+const ColVenueE = styled.div`
+  flex-basis: 0;
+  flex-grow: 1;
+  width: 100%;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+
+  ${media.sm`
+    flex: 0 0 100%;
+    max-width: 100%;
+  `}
 `;
 
 const Col = styled.div`
@@ -146,23 +162,26 @@ const TextCopyright = styled.span`
 `;
 
 const ListContainer = styled.ul`
-  padding-left: 0;
-  list-style: none;
+  padding-left: 0 !important;
+  list-style: none !important;
 `;
 
 const NeedHelpListContainer = styled.ul`
-  margin-bottom: ${spaces.large2};
-  padding-left: 0;
-  list-style: none;
+  margin-bottom: ${spaces.large2} !important;
+  padding-left: 0 !important;
+  list-style: none !important;
 `;
 
 const SpacePerItem = styled.li`
-  line-height: ${lineHeight.normal};
+  margin-bottom: ${spaces.small1} !important;
+  line-height: ${lineHeight.normal} !important;
 `;
 
 const TextListItem = styled.a`
-  ${textNormal};
-  font-weight: ${fontWeight.bold1};
+  display: flex !important;
+  font-size: ${fontSizes.normal} !important;
+  line-height: ${lineHeight.normal} !important;
+  font-weight: ${fontWeight.bold1} !important;
   color: ${colors.secondary};
   text-decoration: none !important;
 
@@ -191,12 +210,24 @@ const VenueETextLink = styled.span`
   color: ${colors.blueVenuee3};
 `;
 
+const IconMDContent = styled.span`
+  display: flex !important;
+  align-self: center !important;
+  height: 100%;
+  margin-right: ${spaces.normal};
+`;
+
 const IconContent = styled.span`
-  margin-top: ${spaces.small1};
+  display: flex;
+  align-items: center;
+  height: 100%;
   margin-right: ${spaces.normal};
 `;
 
 const TextPhoneNumber = styled.span`
+  display: flex;
+  height: 100%;
+  align-items: center;
   white-space: nowrap;
 `;
 
@@ -216,7 +247,7 @@ const SocialLinkContainer = styled.div`
 `;
 
 interface IProps {
-  lng: string;
+  language: string;
 }
 
 interface IState {
@@ -225,7 +256,7 @@ interface IState {
 
 class FooterVenueE extends React.PureComponent<IProps, IState> {
   state = {
-    lng: this.props.lng ? this.props.lng : "th"
+    lng: this.props.language ? this.props.language : "th"
   };
 
   public onLocaleClick = async (locale: any) => {
@@ -243,7 +274,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
       <Container>
         <Row>
           <Content>
-            <div className="col-md-12">
+            <ColVenueE className="col-md-12">
               <VenueELogoContainer>
                 <VenueELogo
                   src={DefaultLogo}
@@ -275,7 +306,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                 <VenueEInstagram />
                 <VenueETwitter />
               </SocialLinkContainer>
-            </div>
+            </ColVenueE>
           </Content>
 
           <Content>
@@ -380,10 +411,10 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
               <NeedHelpListContainer>
                 <SpacePerItem>
                   <TextListItem href="mailto:event@venuee.co">
-                    <IconContent>
+                    <IconMDContent>
                       <MdEmail size={16} />
-                    </IconContent>
-                    &nbsp;event@venuee.co
+                    </IconMDContent>
+                    <span>&nbsp;event@venuee.co</span>
                   </TextListItem>
                 </SpacePerItem>
                 <SpacePerItem>
@@ -392,7 +423,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                       <IconContent>
                         <MdPhone size={16} />
                       </IconContent>
-                      &nbsp;+66 (0)97 258 8563
+                      <span>&nbsp;+66 (0)97 258 8563</span>
                     </TextPhoneNumber>
                   </TextListItem>
                 </SpacePerItem>
@@ -402,7 +433,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                       <IconContent>
                         <MdPhone size={16} />
                       </IconContent>
-                      &nbsp;+66 (0)97 285 8536
+                      <span>&nbsp;+66 (0)97 285 8536</span>
                     </TextPhoneNumber>
                   </TextListItem>
                 </SpacePerItem>
@@ -425,7 +456,7 @@ class FooterVenueE extends React.PureComponent<IProps, IState> {
                 </H5>
                 <SpacePerItem>
                   <LanguageSelect
-                    lng={this.props.lng}
+                    lng={this.props.language}
                     onLocaleClick={this.onLocaleClick}
                   />
                 </SpacePerItem>

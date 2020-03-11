@@ -1,6 +1,6 @@
 {
   "name": "venuee-footer-lib-webpack",
-  "version": "1.0.53",
+  "version": "1.0.60",
   "description": "this's for test lib with webpack",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -63,8 +63,11 @@
     "@types/qs": "^6.9.1",
     "@types/url-parse": "^1.4.3",
     "bootstrap": "^4.4.1",
+    "lodash": "^4.17.15",
+    "qs": "^6.9.1",
     "react-device-detect": "^1.11.14",
     "react-icons": "^3.9.0",
-    "reactstrap": "8.0.1"
+    "reactstrap": "8.0.1",
+    "url-parse": "^1.4.7"
   }
 }
